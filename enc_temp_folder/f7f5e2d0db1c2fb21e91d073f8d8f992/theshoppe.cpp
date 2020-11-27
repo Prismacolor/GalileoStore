@@ -194,8 +194,8 @@ int main()
 				}
 			}
 
+			// not printing correctly
 			current_selection.getInfo();
-			//ERR this prints nothing and doesn't show up in the description of the item in the debugger
 
 			cout << "How many of those do you want, please?" << endl;
 			cin >> customer_q_string;
@@ -217,7 +217,6 @@ int main()
 			}
 			else if (quantity_check == "ok") {
 				item_total = current_selection.getTotal(customer_quantity, current_selection.Price);
-				// ERR 799.950012 x 1 is yielding -107374176
 			}
 			else {
 				item_total = current_selection.getTotal(current_selection.Quantity, current_selection.Price);
