@@ -27,8 +27,8 @@ public:
 		return total_cost;
 	}
 
-	void getInfo() {
-
+	virtual void getInfo() {
+		cout << "Adding item to the list" << endl;
 	}
 };
 
@@ -105,12 +105,12 @@ int main()
 	bool is_shopping = false;
 	string customer_item;
 	StoreItem current_selection;
+	StoreItem* bptr;
 	bool invalidItem = true;
 	list<float> customer_invoice;
 	string customer_q_string;
 	int customer_quantity;
 	float item_total;
-	list<int> customer_quantities;
 	string quantity_check;
 	float customer_total;
 	string customer_response;
@@ -148,39 +148,39 @@ int main()
 
 				if (item_no == 1) 
 				{
-					current_selection = claymore;
+					Weapon current_selection = claymore;
 				}
 				else if (item_no == 2) 
 				{
-					current_selection = thunderHammer;
+					Weapon current_selection = thunderHammer;
 				}
 				else if (item_no == 3)
 				{
-					current_selection = elvenArrows; 
+					Weapon current_selection = elvenArrows; 
 				}
 				else if (item_no == 4)
 				{
-					current_selection = leatherJerkin;
+					Clothing current_selection = leatherJerkin;
 				}
 				else if (item_no == 5)
 				{
-					current_selection = wizardHat; 
+					Clothing current_selection = wizardHat; 
 				}
 				else if (item_no == 6)
 				{
-					current_selection = shadowyCloak;
+					Clothing current_selection = shadowyCloak;
 				}
 				else if (item_no == 7)
 				{
-					current_selection = lovePotion; 
+					Potion current_selection = lovePotion; 
 				}
 				else if (item_no == 8)
 				{
-					current_selection = liquidDarkness; 
+					Potion current_selection = liquidDarkness; 
 				}
 				else if (item_no == 9)
 				{
-					current_selection = restorativePotion; 
+					Potion current_selection = restorativePotion; 
 				}
 				else if (item_no == 10)
 				{
@@ -194,7 +194,8 @@ int main()
 				}
 			}
 
-			current_selection.getInfo();
+			bptr = &current_selection;
+			bptr->getInfo();
 			//ERR this prints nothing and doesn't show up in the description of the item in the debugger
 
 			cout << "How many of those do you want, please?" << endl;
